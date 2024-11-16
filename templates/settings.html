@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/settings.css') }}">
+</head>
+<body>
+    <div class="settings-container">
+        <header>
+            <h1>تنظیمات حساب کاربری</h1>
+        </header>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <label class="BTT" for="language">Language:</label><br>
+            <select class="opB" name="language" required>
+                <option value="en" {% if user_settings.language == 'en' %}selected{% endif %}>English</option>
+                <option value="fa" {% if user_settings.language == 'fa' %}selected{% endif %}>Persian</option>
+            </select><br><br>
+
+            <label class="BTT" for="timezone">Timezone:</label><br>
+            <select class="opB" name="timezone" required>
+                {% for tz in timezone_choices %}
+                    <option value="{{ tz }}" {% if user_settings.timezone == tz %}selected{% endif %}>{{ tz }}</option>
+                {% endfor %}
+            </select><br><br><br><br><br><br><br><br><br><br>
+
+            <button class="BT" type="submit">ذخیره تنظیمات</button>
+            <button><a class="BT" href="{{ url_for('dashboard') }}">بازگشت به صفحه اصلی</a></button>
+    </form>
+        
+    </div>
+</body>
+</html>

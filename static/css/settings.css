@@ -1,0 +1,90 @@
+@font-face {
+    font-family: xs;
+    src: url(../fonts/IRANSansXRegular.ttf)
+}
+
+@font-face {
+    font-family: sf;
+    src: url(../fonts/SF-Arabic.ttf)
+}
+
+html{
+    overflow: hidden;
+}
+
+button {
+    margin-top: 5rem;
+    margin-bottom: 0.5rem;
+    padding: 10px;
+    background-color: #1c73d7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+.BT{
+    color: hsl(0, 0%, 95%);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: sf;
+}
+
+.BTT{
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.opB{
+    margin-top: 1em;
+    margin-bottom: 1.2em;
+    background-color: hsl(0, 0%, 20%);
+    color: hsl(0, 0%, 90%);
+    outline: none;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 7px;
+    font-size: 1.2rem;
+}
+
+
+button:hover {
+    transition: 250ms;
+    background-color: #1261bb;
+    box-shadow: 0 0 10px #1261bb;
+    text-shadow: 0 0 10px #fff;
+}
+
+body {
+    margin: auto;
+    font-family: xs;
+    background-color: hsl(0, 0%, 10%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+}
+
+h1{
+    color: hsl(0, 0%, 90%);
+    margin-bottom: 1rem;
+}
+
+.desc{
+    direction: rtl;
+    color: hsl(0, 0%, 80%);
+    padding-bottom: 5rem;
+    border-bottom: 0.1rem dashed hsl(0, 0%, 80%);
+}
+
+.time{
+    direction: rtl;
+    color: hsl(0, 0%, 60%);
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem dashed hsl(0, 0%, 80%);
+}
+
+p{
+    color: hsl(0, 0%, 80%);
+    margin: 1rem;
+}

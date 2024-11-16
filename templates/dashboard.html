@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <h1>خوش اومدی، {{ username }}!</h1>  <!-- Greet the user by username -->
+            <p>منتظرت بودم که برگردی :)</p>
+        </header>
+
+        <nav>
+            <div>
+                <button><a class="BT" href="{{ url_for('diary') }}">اتفاقات روزمره‌م</a></button>
+                <button><a class="BT" href="{{ url_for('notes') }}">نوت ها</a></button> <!-- Changed 'messages' to 'notes' -->
+                <button><a class="BT" href="{{ url_for('settings') }}">تنظیمات</a></button>
+            </div>
+        </nav>
+
+        <footer>
+            <a href="{{ url_for('logout') }}">خروج از حساب کاربری</a>
+        </footer>
+    </div>
+</body>
+</html>

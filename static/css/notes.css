@@ -1,0 +1,108 @@
+@font-face {
+    font-family: xs;
+    src: url(../fonts/IRANSansXRegular.ttf)
+}
+
+@font-face {
+    font-family: sf;
+    src: url(../fonts/SF-Arabic.ttf)
+}
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+button {
+    font-family: sf;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding: 10px;
+    background-color: #1c73d7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+.TT{
+    color: hsl(0, 0%, 95%);
+    background-color: hsl(0, 0%, 20%);
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-size: 1rem;
+    padding: 0.2rem;
+    text-align: center;
+    transition: 250ms;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    margin-top: 1.5rem;
+}
+
+.TA{
+    color: hsl(0, 0%, 95%);
+    background-color: hsl(0, 0%, 20%);
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    text-align: center;
+    transition: 250ms;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    width: 15rem;
+    height: 10rem;
+    font-family: sf;
+}
+
+
+
+.BT{
+    color: hsl(0, 0%, 95%);
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-family: sf;
+}
+
+
+button:hover {
+    transition: 250ms;
+    background-color: #1261bb;
+    box-shadow: 0 0 10px #1261bb;
+    text-shadow: 0 0 10px #fff;
+}
+
+body {
+    margin: auto;
+    font-family: xs;
+    background-color: hsl(0, 0%, 10%);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    color: #fff;
+}
+
+h1{
+    color: hsl(0, 0%, 90%);
+    margin-bottom: 1rem;
+}
+
+
+.desc{
+    direction: rtl;
+    color: hsl(0, 0%, 80%);
+    padding-bottom: 4rem;
+    border-bottom: 0.1rem dashed hsl(0, 0%, 80%);
+}
+
+.time{
+    direction: rtl;
+    color: hsl(0, 0%, 60%);
+    padding-bottom: 2rem;
+    border-bottom: 0.1rem dashed hsl(0, 0%, 80%);
+}
+
+p{
+    color: hsl(0, 0%, 80%);
+    margin: 1rem;
+}

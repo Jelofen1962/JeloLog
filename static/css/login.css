@@ -1,0 +1,79 @@
+@font-face {
+    font-family: xs;
+    src: url(../fonts/IRANSansXRegular.ttf)
+}
+
+@font-face {
+    font-family: sf;
+    src: url(../fonts/SF-Arabic.ttf)
+}
+
+body {
+    direction: rtl;
+    font-family: xs;
+    background-color: hsl(0, 0%, 10%);
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    width: 250px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: hsl(0, 0%, 18%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h2 {
+    text-align: center;
+    color: hsl(0, 0%, 90%);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    color: hsl(0, 0%, 80%);
+    margin-bottom: 8px;
+}
+
+input {
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid hsl(0, 0%, 10%);
+    border-radius: 4px;
+}
+
+button {
+    font-family: sf;
+    padding: 10px;
+    background-color: #1c73d7;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: 250ms;
+}
+
+button:hover {
+    transition: 250ms;
+    background-color: #1261bb;
+    box-shadow: 0 0 10px #1261bb;
+    text-shadow: 0 0 10px #fff;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li.success {
+    color: green;
+}
+
+li.danger {
+    color: red;
+}

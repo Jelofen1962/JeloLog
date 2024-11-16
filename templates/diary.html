@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/diary.css') }}">
+</head>
+<body>
+    <div class="diary-container">
+        <header>
+            <h1>روزمره من</h1>
+            <p class="desc">به دفتر روزمرگی های من خوش اومدید اینجا وقایع جالب زندگیم رو مینویسم!‌ </p>
+        </header>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Diary Posts -->
+        <div class="posts">
+            {% for post in posts %}
+                <div class="post">
+                    <h2>{{ post.title }}</h2>
+                    <div class="note"><p>{{ post.content }}</p></div>
+                    <p class="timedesc"><em>Posted on: {{ post.date }}</em></p>
+
+                    {% if is_admin %}
+                        <button><a class="minBT" href="{{ url_for('diary') }}?edit={{ post.id }}">ویرایش</a></button> |
+                        <button><a class="minBT" href="{{ url_for('delete_post', post_id=post.id) }}" onclick="return confirm('Are you sure you want to delete this post?')">حذف</a></button>
+                        <p class="time"></p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Add or Edit Post Form (visible only for admin) -->
+        {% if is_admin %}
+            <h3>{% if request.args.get('edit') %}ویرایش{% else %}افزودن{% endif %} پست</h3>
+
+            {% if request.args.get('edit') %}
+                {% set post_to_edit = posts|selectattr('id', 'equalto', request.args.get('edit'))|first %}
+            {% endif %}
+
+            <form method="POST">
+                <input class="TT" type="text" name="title" placeholder="Title" value="{{ post_to_edit.title if post_to_edit else '' }}" required><br>
+                <textarea class="TA" name="content" placeholder="Content" required>{{ post_to_edit.content if post_to_edit else '' }}</textarea><br><br>
+
+                {% if post_to_edit %}
+                    <input type="hidden" name="post_id" value="{{ post_to_edit.id }}">
+                {% endif %}
+                
+                <button class="BTE" type="submit">{% if post_to_edit %}ذخیره تغییرات{% else %}افزودن پست{% endif %}</button>
+            </form>
+        {% endif %}
+    
+        <footer>
+            <button><a class="BT" href="{{ url_for('dashboard') }}">بازگشت به صفحه اصلی</a></button>
+        </footer>
+    </div>
+</body>
+</html>

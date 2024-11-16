@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/notes.css') }}">
+</head>
+<body onload="defval()">
+    <div class="notes-container">
+        <header>
+            <h1>یادداشت هامون</h1>
+            <p class="desc">اینجا میتونیم برای هم دیگه یادداشت های قشنگ بزاریم :)</p>
+        </header>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul>
+                    {% for category, message in messages %}
+                        <li class="{{ category }}">{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+
+        <!-- Notes -->
+        <div class="notes-list">
+            {% for note in notes %}
+                <div class="note">
+                    <p><strong>From:</strong> {{ note.sender }} ||| <strong>To:</strong> {{ note.receiver }}</p>
+                    <p >{{ note.content }}</p>
+                    <p class="time" ><em>Sent at: {{ note.timestamp }}</em></p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Send a new note -->
+        <h3>ارسال یادداشت جدید</h3>
+        <form method="POST">
+            <input id="rec" class="TT" type="text" name="receiver" placeholder="دریافت کننده : Amir" required ><br>
+            <textarea class="TA" name="content" placeholder="یادداشتت رو اینجا بنویس" required></textarea><br><br>
+            <button type="submit">ارسال یادداشت</button>
+            <button><a class="BT" href="{{ url_for('dashboard') }}">بازگشت به صفحه اصلی</a></button>
+    </form>
+
+        
+    </div>
+
+    <script>
+        function defval(){
+            document.getElementById("rec").defaultValue = "Amir";
+        }
+        
+    </script>
+</body>
+</html>
