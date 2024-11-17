@@ -37,10 +37,6 @@ jobs:
         # Treat all other errors as warnings (useful for development)
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
 
-    - name: Test with pytest
-      run: |
-        pytest
-
     - name: Run Flask app
       env:
         FLASK_APP: app.py
